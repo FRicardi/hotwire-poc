@@ -1,0 +1,12 @@
+<h1>Blog</h1>
+
+<div id="articles_container">
+	<ul id="articles_list">
+			<% @articles.each do |article| %>
+				<%= render "article", article: article %>
+			<% end %>
+	</ul>
+	<%= link_to "New article", new_article_path %>
+</div>
+
+<%= turbo_frame_tag "new_article", src: new_article_path(@article), target:"_top"%>
